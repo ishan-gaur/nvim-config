@@ -21,21 +21,21 @@ endif
 
 " Plugins
 call plug#begin(expand('~/.config/nvim/plugged'))
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/grep.vim'
+" Plug 'vim-scripts/grep.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+" Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'ayu-theme/ayu-vim'
-Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'octol/vim-cpp-enhanced-highlight'
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -68,11 +68,12 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 
 " Whitespace
-set wrap
+set nowrap
 set textwidth=79
 set tabstop=4
 set shiftwidth=2
 set expandtab
+set smartindent
 
 " Cursor motion
 set scrolloff=3
@@ -104,6 +105,25 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
+" Remap Opening Tagbar to <F8>
+nmap <F8> :TagbarToggle<CR>
+
+" Editting conveniences/habit reinforcment
+let mapleader = "<Space>"
+nnoremap ev :vsplit ~/.config/nvim/init.vim<cr> 
+nnoremap sv :source ~/.config/nvim/init.vim<cr> 
+
+inoremap kj <Esc>
+inoremap <Esc> <Nop>
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
 
 "" Remember cursor position
 augroup vimrc-remember-cursor-position
